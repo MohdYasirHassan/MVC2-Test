@@ -1,0 +1,29 @@
+﻿@model List<MVC2.CONTEXT.STUDENT_TBL>
+@{
+    ViewBag.Title = "StudentList";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+<table class="table table-hover">
+    <tr>
+        <th>Name</th>
+        <th>FName</th>
+        <th>E-Mail</th>
+        <th>Mobile</th>
+        <th>Description</th>
+        <th>ACTION</th>
+    </tr>
+    @foreach(var itm in Model)
+            {
+                <tr>
+                    <td>@itm.NAME</td>
+                    <td>@itm.FNAME</td>
+                    <td>@itm.EMAIL</td>
+                    <td>@itm.MOBILE</td>
+                    <td>@itm.DESCRIPTION</td>
+                    <td>
+                        <a href="@Url.Action("Student", new {@itm.ID,@itm.NAME,@itm.FNAME,@itm.EMAIL,@itm.MOBILE,@itm.DESCRIPTION})" class="bi bi-pencil-fill"></a>
+                        <a href="@Url.Action("Delete", new {@itm.ID})" class="bi bi-trash2-fill"></a>
+                    </td>
+                </tr>
+            }
+</table>

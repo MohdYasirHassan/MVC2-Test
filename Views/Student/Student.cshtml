@@ -1,0 +1,49 @@
+﻿@model  MVC2.CONTEXT.STUDENT_TBL
+
+@{
+    ViewBag.Title = "Student";
+}
+<style>
+    .Error{
+        color:red;
+    }
+</style>
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post))
+            {
+                <div class="container">
+                    <div class="form-group">
+                        @Html.HiddenFor(x => x.ID)
+                        <label>Name</label>
+                        @Html.ValidationMessageFor(x => x.NAME, "", new { @class = "Error" })
+                        @Html.TextBoxFor(x => x.NAME, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>FName</label>
+
+                        @Html.TextBoxFor(x => x.FNAME, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.FNAME, "", new { @class = "Error" })
+                    </div>
+                    <div class="form-group">
+                        <label>E-Mail</label>
+                        @Html.ValidationMessageFor(x => x.EMAIL, "", new { @class = "Error" })
+                        @Html.TextBoxFor(x => x.EMAIL, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile</label>
+                        @Html.ValidationMessageFor(x => x.MOBILE, "", new { @class = "Error" })
+                        @Html.TextBoxFor(x => x.MOBILE, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        @Html.ValidationMessageFor(x => x.DESCRIPTION, "", new { @class = "Error" })
+                        @Html.TextAreaFor(x => x.DESCRIPTION, new { @class = "form-control", @rows = "6" })
+                    </div>
+                    <div class="form-group">
+                        @*<input type="submit" value="SAVE" />*@
+                        <button type="submit" class="btn-primary">SUBMIT</button>
+                        <button type="reset" class="btn-danger">CANCEL</button>
+                    </div>
+                </div>
+            }
+
+
