@@ -28,8 +28,6 @@ namespace MVC2.Controllers
             //    return View(obj);
             //}
             ModelState.Clear();
-            var test = "";
-            //GitHub Changes
             return View(obj);
         }
         [HttpPost]
